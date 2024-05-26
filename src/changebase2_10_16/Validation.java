@@ -14,7 +14,7 @@ public class Validation {
     Scanner in = new Scanner(System.in);
     String binaryValid = "[0-1]*";
     String decimalValid = "[0-9]*";
-    String haxaValid ="[0-9A-F]*";
+    String hexaValid ="[0-9A-F]*";
     
     //check user input number limit
     public int checkInputIntLimit(int min, int max) {
@@ -70,7 +70,7 @@ public class Validation {
         
          while (true) {            
             result = in.nextLine().trim();
-            if (result.matches(decimalValid)){
+            if (result.matches(hexaValid)){
                 return result;
             }
             System.err.println("number must between '0' - '9'");

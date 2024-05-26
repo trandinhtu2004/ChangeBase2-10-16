@@ -15,7 +15,8 @@ public class Main {
      */
     public static void main(String[] args) {
         Manager m = new Manager();
-        String binary = "1101";
+        Validation v = new Validation();
+        /*String binary = "1101";
         System.out.println("Binary to Decimal: " + m.convertBinaryToDecimal(binary)); // 13
         System.out.println("Binary to Hexa: " + m.convertBinaryToHexa(binary)); // D
         
@@ -26,6 +27,32 @@ public class Main {
         String decimal = "27";
         System.out.println("Decimal to Binary: " + m.convertDecimalToBinary(decimal)); // 11011
         System.out.println("Decimal to Hexa: " + m.convetDecimalToHexa(decimal)); // 1B
-    }
+*/
+        
+        while (true){
+        int choice = m.menu();
+            switch (choice) {
+                case 1:
+                    String binary = v.checkInputBinary();
+                    m.convertFromBinary(binary);
+                    break;
+                case 2:
+                    String decimal = v.checkInputDecimal();
+                    m.convertFromDecimal(decimal);
+                    break;
+                    
+                case 3:
+                    String hexa = v.checkHexaInput();
+                    m.convertFromHexadecimal(hexa);
+                    break;
+                    
+                case 4:
+                    
+                    return;
+                default:
+                    throw new AssertionError();
+            }
+        }  
+}
     
 }
