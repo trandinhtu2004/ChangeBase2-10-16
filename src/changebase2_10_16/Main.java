@@ -19,15 +19,15 @@ public class Main {
         /*String binary = "1101";
         System.out.println("Binary to Decimal: " + m.convertBinaryToDecimal(binary)); // 13
         System.out.println("Binary to Hexa: " + m.convertBinaryToHexa(binary)); // D
+        */
+        String hexaaa = "1A";
+        System.out.println("Hexa to Decimal: " + m.convertHexaToDecimal(hexaaa)); // 26
+        System.out.println("Hexa to Binary: " + m.convertHexaToBinary(hexaaa)); // 11010
         
-        String hexa = "1A";
-        System.out.println("Hexa to Decimal: " + m.convertHexaToDecimal(hexa)); // 26
-        System.out.println("Hexa to Binary: " + m.convertHexaToBinary(hexa)); // 11010
-        
-        String decimal = "27";
-        System.out.println("Decimal to Binary: " + m.convertDecimalToBinary(decimal)); // 11011
-        System.out.println("Decimal to Hexa: " + m.convetDecimalToHexa(decimal)); // 1B
-*/
+        String decimalll = "27";
+        System.out.println("Decimal to Binary: " + m.convertDecimalToBinary(decimalll)); // 11011
+        System.out.println("Decimal to Hexa: " + m.convetDecimalToHexa(decimalll)); // 1B
+
         
         while (true){
         int choice = m.menu();
