@@ -116,7 +116,7 @@ public class Manager {
             deci /= 2;
         }
         return binary;
-    }*/
+    }
     public String convertDecimalToBinary(String decimal) {
         int deci = Integer.parseInt(decimal);
         String binary = "";
