@@ -53,15 +53,16 @@ public class Manager {
     }
 
     public void convertFromDecimal(String decimal) {
+        int deci = Integer.parseInt(decimal);
         int choice = displayConvert("decimal", "binary", "hexadecimal");
         switch (choice) {
             case 1:
                 System.out.println("Binary: "
-                        + convertDecimalToBinary(decimal));
+                        + convertFromDecimal(deci, 2));
                 break;
             case 2:
                 System.out.println("Hexadecimal: "
-                        + convetDecimalToHexa(decimal));
+                        + convertFromDecimal(deci, 16));
                 break;
             default:
                 throw new AssertionError();
@@ -72,8 +73,9 @@ public class Manager {
         int choice = displayConvert("hexadecimal", "binary", "decimal");
         switch (choice) {
             case 1:
+            int deci = ConvertToDecimal(hexadecimal, 16);
                 System.out.println("Binary: "
-                        + convertHexaToBinary(hexadecimal));
+                        + convertFromDecimal(deci, 2));
                 break;
             case 2:
                 System.out.println("Decimal: "
