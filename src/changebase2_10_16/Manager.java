@@ -187,8 +187,10 @@ public class Manager {
         
         StringBuilder result = new StringBuilder();
         while (decimalValue > 0) {
-            int remainder = decimalValue % toBase;
-            result.insert(0, hexDigits[remainder]);
+            int remainder = decimalValue % toBase; // chia lấy số dư
+        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
+            result.insert(0, hexDigits[remainder]); // lấy char ở phần tử thứ reminder
+        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
             decimalValue /= toBase;
         }
 
