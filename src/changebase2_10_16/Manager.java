@@ -85,7 +85,42 @@ public class Manager {
                 throw new AssertionError();
         }
     }
+    
+     public int ConvertToDecimal(String input, int fromBase) {
+        int decimalValue = 0;
+        int digit;
 
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(input.length() - 1 - i);
+            if (currentChar >= '0' && currentChar <= '9') {
+                digit = currentChar - '0';
+            } else if (currentChar >= 'A' && currentChar <= 'F') {
+                digit = currentChar - 'A' + 10;
+            } else if (currentChar >= 'a' && currentChar <= 'f') {
+                digit = currentChar - 'a' + 10;
+            } else {
+                throw new IllegalArgumentException("Invalid character in input: " + currentChar);
+            }
+            decimalValue += digit * Math.pow(fromBase, i);
+        }
+        return decimalValue;
+    }
+     public String convertFromDecimal(int decimalValue, int toBase) {
+        if (decimalValue == 0) {
+            return "0";
+        }
+        
+        StringBuilder result = new StringBuilder();
+        while (decimalValue > 0) {
+            int remainder = decimalValue % toBase; // chia lấy số dư
+        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
+            result.insert(0, hexDigits[remainder]); // lấy char ở phần tử thứ reminder
+        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
+            decimalValue /= toBase;
+        }
+
+        return result.toString();
+     }
     /*public String convertBinaryToDecimal(String binary){
         int decimal = 0;
         int length = binary.length();
@@ -161,39 +196,4 @@ public class Manager {
         return decimal;
     }
 */
-    public int ConvertToDecimal(String input, int fromBase) {
-        int decimalValue = 0;
-        int digit;
-
-        for (int i = 0; i < input.length(); i++) {
-            char currentChar = input.charAt(input.length() - 1 - i);
-            if (currentChar >= '0' && currentChar <= '9') {
-                digit = currentChar - '0';
-            } else if (currentChar >= 'A' && currentChar <= 'F') {
-                digit = currentChar - 'A' + 10;
-            } else if (currentChar >= 'a' && currentChar <= 'f') {
-                digit = currentChar - 'a' + 10;
-            } else {
-                throw new IllegalArgumentException("Invalid character in input: " + currentChar);
-            }
-            decimalValue += digit * Math.pow(fromBase, i);
-        }
-        return decimalValue;
-    }
-     public String convertFromDecimal(int decimalValue, int toBase) {
-        if (decimalValue == 0) {
-            return "0";
-        }
-        
-        StringBuilder result = new StringBuilder();
-        while (decimalValue > 0) {
-            int remainder = decimalValue % toBase; // chia lấy số dư
-        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
-            result.insert(0, hexDigits[remainder]); // lấy char ở phần tử thứ reminder
-        //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
-            decimalValue /= toBase;
-        }
-
-        return result.toString();
-     }
 }
