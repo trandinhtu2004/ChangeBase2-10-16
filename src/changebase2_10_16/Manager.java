@@ -30,7 +30,7 @@ public class Manager {
     }
 
     public int displayConvert(String from, String toCase1, String toCase2) {
-        System.out.println("1. Convert from " + from + " to " + toCase1);
+        System.out.println("1.Convert from " + from + " to " + toCase1);
         System.out.println("2.Convert from " + from + " to " + toCase2);
         int choice = v.checkInputIntLimit(1, 2);
         return choice;
