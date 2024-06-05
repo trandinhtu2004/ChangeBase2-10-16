@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         Manager m = new Manager();
         Validation v = new Validation();
+        UI ui = new UI();
         /*String binary = "1101";
         System.out.println("Binary to Decimal: " + m.convertBinaryToDecimal(binary)); // 13
         System.out.println("Binary to Hexa: " + m.convertBinaryToHexa(binary)); // D
@@ -34,16 +35,16 @@ public class Main {
             switch (choice) {
                 case 1:
                     String binary = v.checkInputBinary();
-                    m.convertFromBinary(binary);
+                    ui.convertFromBinary(binary);
                     break;
                 case 2:
                     String decimal = v.checkInputDecimal();
-                    m.convertFromDecimal(decimal);
+                    ui.convertFromDecimal(decimal);
                     break;
                     
                 case 3:
                     String hexa = v.checkHexaInput();
-                    m.convertFromHexadecimal(hexa);
+                    ui.convertFromHexadecimal(hexa);
                     break;
                     
                 case 4:

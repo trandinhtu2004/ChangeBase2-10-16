@@ -15,6 +15,7 @@ public class Validation {
     String binaryValid = "[0-1]*";
     String decimalValid = "[0-9]*";
     String hexaValid ="[0-9A-F]*";
+    String hexaLowerCase = "[0-9a-f]*";
     
     //check user input number limit
     public int checkInputIntLimit(int min, int max) {
@@ -70,10 +71,13 @@ public class Validation {
         
          while (true) {            
             result = in.nextLine().trim();
+            if (result.matches(hexaLowerCase)){
+                return result.toUpperCase();
+            }
             if (result.matches(hexaValid)){
                 return result;
             }
-            System.err.println("number must between '0' - '9'");
+            System.err.println("number must between '0' - '9'/'A' - 'F' ");
             System.out.println("Try again: ");
         }
     }

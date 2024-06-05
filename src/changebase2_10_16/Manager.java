@@ -29,68 +29,44 @@ public class Manager {
         return choice;
     }
 
-    public int displayConvert(String from, String toCase1, String toCase2) {
+/*    public int displayConvert(String from, String toCase1, String toCase2) {
         System.out.println("1.Convert from " + from + " to " + toCase1);
         System.out.println("2.Convert from " + from + " to " + toCase2);
         int choice = v.checkInputIntLimit(1, 2);
         return choice;
     }
-
-    public void convertFromBinary(String binary) {
-        int choice = displayConvert("binary", "decimal", "hexadecimal");
-        switch (choice) {
-            case 1:
+*/
+/*    public void convertFromBinary(String binary) {
                 System.out.println("Decimal: "
-                        + ConvertToDecimal(binary, 2));
+                        + convertToDecimal(binary, 2));
 
-                break;
-            case 2:
-                int decimalValue = ConvertToDecimal(binary, 2);
+                int decimalValue = convertToDecimal(binary, 2);
                 System.out.println("Hexadecimal: "
                         + convertFromDecimal(decimalValue, 16));
-                break;
-        }
     }
 
     public void convertFromDecimal(String decimal) {
         int deci = Integer.parseInt(decimal);
-        int choice = displayConvert("decimal", "binary", "hexadecimal");
-        switch (choice) {
-            case 1:
                 System.out.println("Binary: "
                         + convertFromDecimal(deci, 2));
-                break;
-            case 2:
                 System.out.println("Hexadecimal: "
                         + convertFromDecimal(deci, 16));
-                break;
-            default:
-                throw new AssertionError();
-        }
+        
     }
 
     public void convertFromHexadecimal(String hexadecimal) {
-        int choice = displayConvert("hexadecimal", "binary", "decimal");
-        switch (choice) {
-            case 1:
-            int deci = ConvertToDecimal(hexadecimal, 16);
+            int deci = convertToDecimal(hexadecimal, 16);
                 System.out.println("Binary: "
                         + convertFromDecimal(deci, 2));
-                break;
-            case 2:
                 System.out.println("Decimal: "
-                        + ConvertToDecimal(hexadecimal, 16));
-                break;
-            default:
-                throw new AssertionError();
-        }
+                        + convertToDecimal(hexadecimal, 16));
     }
-    
-     public int ConvertToDecimal(String input, int fromBase) {
+*/    
+     public int convertToDecimal(String input, int fromBase) {
         int decimalValue = 0;
         int digit;
 
-        for (int i = 0; i < input.length(); i++) {
+    /*    for (int i = 0; i < input.length(); i++) {
             char currentChar = input.charAt(input.length() - 1 - i);
             if (currentChar >= '0' && currentChar <= '9') {
                 digit = currentChar - '0';
@@ -103,6 +79,22 @@ public class Manager {
             }
             decimalValue += digit * Math.pow(fromBase, i);
         }
+        return decimalValue;*/
+    
+        for (int i = 0; i < input.length();i++){
+            char curChar = input.charAt(input.length() - 1 - i);
+            if (curChar >= '0' && curChar <= '9'){
+                digit = curChar - '0';
+            }
+            else if (curChar >= 'A' && curChar <= 'F'){
+                digit = curChar - 'A' + 10;
+            } 
+            else{ throw new IllegalArgumentException("Invalid character: " 
+            + curChar);
+            }
+            decimalValue += digit * Math.pow(fromBase, i);
+            
+        }
         return decimalValue;
     }
      public String convertFromDecimal(int decimalValue, int toBase) {
@@ -110,7 +102,7 @@ public class Manager {
             return "0";
         }
         
-        StringBuilder result = new StringBuilder();
+        /*StringBuilder result = new StringBuilder();
         while (decimalValue > 0) {
             int remainder = decimalValue % toBase; // chia lấy số dư
         //    System.out.println("Decimal: " + decimalValue + " Remainder: " + remainder + " Result so far: " + result.toString());
@@ -119,6 +111,13 @@ public class Manager {
             decimalValue /= toBase;
         }
 
+        return result.toString();*/
+        StringBuilder result = new StringBuilder();
+        while (decimalValue > 0){
+            int reminder = decimalValue % toBase;
+            result.insert(0, digits[reminder]);
+            decimalValue /= toBase;
+        }
         return result.toString();
      }
     /*public String convertBinaryToDecimal(String binary){
