@@ -19,7 +19,7 @@ public class Manager {
 
     Validation v = new Validation();
 
-    public int menu() {
+    /*public int menu() {
         System.out.println("1. Convert From Binary.");
         System.out.println("2. Convert From Decimal.");
         System.out.println("3. Convert From Hexa.");
@@ -27,7 +27,7 @@ public class Manager {
         System.out.print("Enter your choice: ");
         int choice = v.checkInputIntLimit(1, 4);
         return choice;
-    }
+    }*/
 
 /*    public int displayConvert(String from, String toCase1, String toCase2) {
         System.out.println("1.Convert from " + from + " to " + toCase1);

@@ -31,7 +31,7 @@ public class Main {
 */
         
         while (true){
-        int choice = m.menu();
+        int choice = ui.menu();
             switch (choice) {
                 case 1:
                     String binary = v.checkInputBinary();

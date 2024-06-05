@@ -10,6 +10,17 @@ package changebase2_10_16;
  */
 public class UI {
     Manager manager = new Manager();
+    Validation v = new Validation();
+    public int menu() {
+        System.out.println("1. Convert From Binary.");
+        System.out.println("2. Convert From Decimal.");
+        System.out.println("3. Convert From Hexa.");
+        System.out.println("4. Exit");
+        System.out.print("Enter your choice: ");
+        int choice = v.checkInputIntLimit(1, 4);
+        return choice;
+    }
+    
      public void convertFromBinary(String binary) {
                 System.out.println("Decimal: "
                         + manager.convertToDecimal(binary, 2));
